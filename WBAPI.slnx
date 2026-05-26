@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Application/">
+    <Project Path="WBAPI.Application/WBAPI.Application.csproj" />
+  </Folder>
+  <Folder Name="/src/Domain/">
+    <Project Path="WBAPI.Domain/WBAPI.Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/Infrastructure/">
+    <Project Path="WBAPI.Insfrastructure/WBAPI.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/Presentation/">
+    <Project Path="WBAPI.WebAPI/WBAPI.WebAPI.csproj" />
+  </Folder>
+  <Folder Name="/Tests/" />
+</Solution>

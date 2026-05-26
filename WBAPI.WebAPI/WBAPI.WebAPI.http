@@ -1,0 +1,6 @@
+@WBAPI.WebAPI_HostAddress = http://localhost:5187
+
+GET {{WBAPI.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
