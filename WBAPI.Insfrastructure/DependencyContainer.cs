@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WBAPI.Application.Interfaces;
 using WBAPI.Domain.Interfaces;
+using WBAPI.Infrastructure.Implementations.Common;
+using WBAPI.Infrastructure.Implementations.Repositories;
 using WBAPI.Insfrastructure.Implementations.Identity;
 using WBAPI.Insfrastructure.Implementations.Persistence;
 using WBAPI.Insfrastructure.Implementations.Services;
@@ -42,6 +44,8 @@ namespace WBAPI.Insfrastructure
             
             services.AddScoped<IJwtTokenService, JwtTokenServiceImp>();
             services.AddScoped<IIdentityService, IdentityServiceImp>();
+            services.AddScoped<IUnitOfWork, UnitOfWorkImp>();
+            services.AddScoped<IAlbumRepository, AlbumRepository>();
 
             return services;
         }

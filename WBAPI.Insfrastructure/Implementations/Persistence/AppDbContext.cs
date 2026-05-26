@@ -1,12 +1,14 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using WBAPI.Domain.Entities;
 using WBAPI.Insfrastructure.Implementations.Identity;
 
 namespace WBAPI.Insfrastructure.Implementations.Persistence
 {
     public class AppDbContext(DbContextOptions<AppDbContext> options) : IdentityDbContext<AppUser, IdentityRole, string>(options)
     {
+        public DbSet<Album> Albums => Set<Album>();
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
