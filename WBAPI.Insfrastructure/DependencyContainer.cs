@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using WBAPI.Application.Interfaces;
 using WBAPI.Domain.Interfaces;
 using WBAPI.Infrastructure.Implementations.Common;
@@ -20,7 +21,10 @@ namespace WBAPI.Insfrastructure
             services.AddDbContext<AppDbContext>(opts =>
                 opts.UseSqlServer(
                     configuration.GetConnectionString("DefaultConnection"),
-                    b => b.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)));
+                    b => b.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName))
+                    .EnableDetailedErrors()
+                    .EnableSensitiveDataLogging()
+                    .LogTo(Console.WriteLine, LogLevel.Information));
            
             services
                 .AddIdentity<AppUser, IdentityRole>(opts =>
