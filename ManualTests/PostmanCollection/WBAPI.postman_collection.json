@@ -1,0 +1,256 @@
+{
+  "info": {
+    "_postman_id": "6b9b09c7-e8ec-419b-9aed-8d174e76fbe2",
+    "name": "WBAPI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "3673540"
+  },
+  "item": [
+    {
+      "name": "1. Crear Usuario",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"ebarriosdev\",\r\n  \"email\": \"ebarrios@hotmail.com\",\r\n  \"password\": \"Aa123456!\",\r\n  \"confirmPassword\": \"Aa123456!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7232/api/Auth/register",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7232",
+              "path": [
+                "api",
+                "Auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "2. Login para obtener Token JWT",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"ebarrios@hotmail.com\",\r\n  \"password\": \"Aa123456!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7232/api/Auth/login",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7232",
+              "path": [
+                "api",
+                "Auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "3. Crear un recurso",
+      "item": [
+        {
+          "name": "Crear un Album",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZTdmZGE3Ni0wYTVmLTRkYTEtOGMyMS03Yjg3NjQ1ZjlkMGIiLCJlbWFpbCI6ImViYXJyaW9zQGhvdG1haWwuY29tIiwidW5pcXVlX25hbWUiOiJlYmFycmlvc2RldiIsImp0aSI6Ijk0OWQ2NmE3LWMyNDctNDdlOS04MDE0LThkM2RkYjIxZWEyNyIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJleHAiOjE3Nzk4Njk4MzIsImlzcyI6IkF1dGhBUEkiLCJhdWQiOiJBdXRoQVBJVXNlcnMifQ.e6xpSqmXhOvSLbxzk-6cUJCV-DhSOo85pMnofo6Hobs",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Sabor a Mí\",\r\n  \"artist\": \"Luis Miguel\",\r\n  \"genreId\": 1,\r\n  \"year\": 1997\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7232/api/Albums",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7232",
+              "path": [
+                "api",
+                "Albums"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "4. Consultar el recurso creado por Id",
+      "item": [
+        {
+          "name": "Buscar album creado por Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7232/api/Albums/a24aa0b3-dffd-4b14-bd10-35c2419bf215",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7232",
+              "path": [
+                "api",
+                "Albums",
+                "a24aa0b3-dffd-4b14-bd10-35c2419bf215"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "5. Actualizar un recurso",
+      "item": [
+        {
+          "name": "Actualizar un Album",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZTdmZGE3Ni0wYTVmLTRkYTEtOGMyMS03Yjg3NjQ1ZjlkMGIiLCJlbWFpbCI6ImViYXJyaW9zQGhvdG1haWwuY29tIiwidW5pcXVlX25hbWUiOiJlYmFycmlvc2RldiIsImp0aSI6Ijk0OWQ2NmE3LWMyNDctNDdlOS04MDE0LThkM2RkYjIxZWEyNyIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJleHAiOjE3Nzk4Njk4MzIsImlzcyI6IkF1dGhBUEkiLCJhdWQiOiJBdXRoQVBJVXNlcnMifQ.e6xpSqmXhOvSLbxzk-6cUJCV-DhSOo85pMnofo6Hobs",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Vivir mi Vida \",\r\n  \"artist\": \"Marc Anthony\",\r\n  \"genreId\": 4,\r\n  \"year\": 2010\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://localhost:7232/api/Albums/a24aa0b3-dffd-4b14-bd10-35c2419bf215",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7232",
+              "path": [
+                "api",
+                "Albums",
+                "a24aa0b3-dffd-4b14-bd10-35c2419bf215"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "6. Eliminar un recurso por Id",
+      "item": [
+        {
+          "name": "Eliminar un Album",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZTdmZGE3Ni0wYTVmLTRkYTEtOGMyMS03Yjg3NjQ1ZjlkMGIiLCJlbWFpbCI6ImViYXJyaW9zQGhvdG1haWwuY29tIiwidW5pcXVlX25hbWUiOiJlYmFycmlvc2RldiIsImp0aSI6Ijk0OWQ2NmE3LWMyNDctNDdlOS04MDE0LThkM2RkYjIxZWEyNyIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJleHAiOjE3Nzk4Njk4MzIsImlzcyI6IkF1dGhBUEkiLCJhdWQiOiJBdXRoQVBJVXNlcnMifQ.e6xpSqmXhOvSLbxzk-6cUJCV-DhSOo85pMnofo6Hobs",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7232/api/Albums/a24aa0b3-dffd-4b14-bd10-35c2419bf215",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7232",
+              "path": [
+                "api",
+                "Albums",
+                "a24aa0b3-dffd-4b14-bd10-35c2419bf215"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "7. Leer todos los registros",
+      "item": [
+        {
+          "name": "Leer todos los registros",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7232/api/Albums",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7232",
+              "path": [
+                "api",
+                "Albums"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

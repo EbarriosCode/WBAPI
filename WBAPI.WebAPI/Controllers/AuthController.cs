@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WBAPI.Application.Common;
 using WBAPI.Application.Features.Auth.Commands.LoginUser;
@@ -33,22 +32,5 @@ namespace WBAPI.WebAPI.Controllers
 
             return result.Success ? Ok(result) : Unauthorized(result);
         }
-
-        /// <summary>Endpoint protegido — muestra datos del token</summary>
-        [HttpGet("me")]
-        [Authorize]
-        public IActionResult Me()
-        {
-            var userId = User.FindFirst(
-                System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
-            var username = User.Identity?.Name;
-            var roles = User.Claims
-                .Where(c => c.Type ==
-                    System.Security.Claims.ClaimTypes.Role)
-                .Select(c => c.Value);
-
-            return Ok(new { userId, username, roles, message = "Token válido" });
-        }
-
     }
 }

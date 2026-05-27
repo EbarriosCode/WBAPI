@@ -13,4 +13,10 @@
     <Project Path="WBAPI.WebAPI/WBAPI.WebAPI.csproj" />
   </Folder>
   <Folder Name="/Tests/" />
+  <Folder Name="/Tests/IntegrationTests/">
+    <Project Path="WBAPI.WebAPI.IntegrationTests/WBAPI.WebAPI.IntegrationTests.csproj" Id="b6408ed4-400e-4580-b8dd-3f268b58854c" />
+  </Folder>
+  <Folder Name="/Tests/ManualTests/">
+    <Project Path="ManualTests/ManualTests.csproj" Id="a4761c9c-ccb4-4cf0-aaf7-c234ba44aeb8" />
+  </Folder>
 </Solution>
